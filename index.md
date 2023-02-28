@@ -1,25 +1,25 @@
 ---
 layout: page
-title: GTFOBins
+title: GTFOArgs
 ---
 
 ![logo](/assets/logo.png){:.logo}
 
-GTFOBins is a curated list of Unix binaries that can be used to bypass local security restrictions in misconfigured systems.
+GTFOArgs is a curated list of Unix binaries that can be manipulated for argument injection, possibly resulting in security vulnerabilities.
 
-The project collects legitimate [functions](/functions/) of Unix binaries that can be abused to ~~get the f**k~~ break out restricted shells, escalate or maintain elevated privileges, transfer files, spawn bind and reverse shells, and facilitate the other post-exploitation tasks.
+Argument injection takes advantage of a program's legitimate functionality in order to extend the capabilities provided by the method in which the program is intended to be run. For example, an interface enabling a user to run the `man argescape($1)` command may be vulnerable to argument injection, as the (legitimate) --pager argument can be abused to execute arbitrary system commands: `man --pager=whoami man` is equivalent to `whoami`.
 
-It is important to note that this is **not** a list of exploits, and the programs listed here are not vulnerable per se, rather, GTFOBins is a compendium about how to live off the land when you only have certain binaries available.
+The project collects legitimate [arguments](/arguments/) of Unix binaries that can be abused to break out of the environment they were run, in order to escalate privileges, transfer files, spawn bind and reverse shells, and facilitate other post-exploitation tasks.
 
-GTFOBins is a [collaborative][] project created by [Emilio Pinna][norbemi] and [Andrea Cardaci][cyrus_and] where everyone can [contribute][] with additional binaries and techniques.
 
-If you are looking for Windows binaries you should visit [LOLBAS][].
+GTFOArgs is a [collaborative][] project where everyone can [contribute][] with additional binaries and techniques.
+
+This project was inspired by [GTFOBins][] and most of the layout source code was written by them.
+
 
 [functions]: /functions/
-[LOLBAS]: https://lolbas-project.github.io/
-[collaborative]: https://github.com/GTFOBins/GTFOBins.github.io/graphs/contributors
+[GTFOBins]: https://gtfobins.github.io/
+[collaborative]: https://github.com/GTFOArgs/GTFOArgs.github.io/graphs/contributors
 [contribute]: /contribute/
-[norbemi]: https://twitter.com/norbemi
-[cyrus_and]: https://twitter.com/cyrus_and
 
 {% include bin_table.html %}
