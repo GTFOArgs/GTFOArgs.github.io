@@ -1,12 +1,12 @@
 ---
-title: GTFOBins
+title: GTFOArgs
 
 exclude: ['/scripts', '/Gemfile', '/Makefile', '/README.md', '/CONTRIBUTING.md']
 
 permalink: pretty
 
 collections:
-  gtfobins:
+  gtfoargs:
     output: true
 
 defaults:

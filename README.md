@@ -1,8 +1,8 @@
-# GTFOBins [![Build Status][]][travis]
+# GTFOArgs
 
-[Build Status]: https://travis-ci.com/GTFOBins/GTFOBins.github.io.svg?branch=master
-[travis]: https://travis-ci.com/GTFOBins/GTFOBins.github.io
+Welcome to GTFOArgs, the go-to resource for finding programs that can be abused for argument injection.
+Inspired by [GTFOBins](https://gtfobins.github.io/), GTFOArgs provides a curated list of programs and their associated arguments that can be exploited to gain privileged access or execute arbitrary commands on remote systems.
+With easy-to-use search and filtering capabilities, GTFOArgs makes it simple to check whether a argument injection is applicable to a program, and find the right argument combination to suit your needs.
 
-GTFOBins is a curated list of Unix binaries that can be used to bypass local security restrictions in misconfigured systems.
 
-Find the project at https://gtfobins.github.io
+Find the project at https://gtfoargs.github.io

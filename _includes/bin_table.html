@@ -7,7 +7,7 @@
         {% endfor %}
     </ul>
 
-    <input id="bin-search" type="text" placeholder="Search among {{ site.gtfobins | size }} binaries: <binary> +<function> ..."/>
+    <input id="bin-search" type="text" placeholder="Search among {{ site.gtfoargs | size }} binaries: <binary> +<function> ..."/>
 </div>
 
 <div id="bin-table-wrapper">
@@ -19,7 +19,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for file in site.gtfobins %}
+            {% for file in site.gtfoargs %}
             <tr>
                 <td><a href="{{ file.url }}" class="bin-name">{% include get_bin_name path=file.path %}</a></td>
                 <td>{% include function_list.html bin=file %}</td>
