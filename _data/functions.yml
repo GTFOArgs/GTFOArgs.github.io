@@ -1,6 +1,10 @@
 ---
 # this is the rendering order of functions
 
+shell:
+  label: Shell
+  description: It can be used to break out from restricted environments by spawning an interactive system shell.
+
 command:
   label: Command
   description: It can be used to break out from the intended program by running non-interactive system commands.
