@@ -2,7 +2,7 @@
 functions:
   shell:
     - description: The --to-command is normally used to pipe extracted files to a command. This can be used to run arbitrary commands on a host. The file must be a valid archive file.
-    - code: |
+     code: |
         tar xf /tmp/valid.tar --to-command='/bin/sh -c "sh <&2 1>&2"'
     - description: Similar to the above, but at a previous stage in the extraction. A valid archive is not required. This functionality can be abused in various ways for file-read and file-write (see below).
       code: |
