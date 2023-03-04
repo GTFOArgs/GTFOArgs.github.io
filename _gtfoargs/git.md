@@ -12,7 +12,7 @@ functions:
         git log --max-count=1 --pretty=format:"%s"  --output .git/hooks/pre-commit
         git commit --allow-empty -m x
   file-read:
-    - description: `git diff` is commonly used to compare a single file to a different version of itself in history. The `--no-index` flag can be used to effectively turn `git diff` into normal `diff` against another file _within the git repository_ (but not necessarily tracked).
+    - description: It is common to use `git diff` to compare a single file to a different version of itself in history. The `--no-index` flag can be used to effectively turn `git diff` into normal `diff` against another file _within the git repository_ (but not necessarily tracked).
       code: |
         git diff --no-index local-secret-file.conf git.md
     - description: If you are reading a file outside of the git directory, you can use `git diff` against `/dev/null`.

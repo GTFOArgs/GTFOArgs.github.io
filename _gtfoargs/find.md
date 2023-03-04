@@ -1,9 +1,10 @@
 ---
 functions:
   shell:
-    - description: Can be used to execute arbitrary commands on a system and spawn shells either directly or otherwise.
+    - description: Can be used to execute arbitrary commands on a system and spawn shells either indirectly
       code: |
         find . -name i_do_not_exist -or -exec perl -e 'exec sh' ; -quit
+    - description: or directly.
       code: |
         find . -exec /bin/sh ; -quit
   command:
