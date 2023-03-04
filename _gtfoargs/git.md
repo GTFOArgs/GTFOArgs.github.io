@@ -6,7 +6,7 @@ functions:
       code: |
         git grep --open-files-in-pager='uname -a #' .
         git grep --open-files-in-pager='uname;' .
-      description: This method requires the git config advice.ignoredHook to be false (which it is not by default).
+#      description: This method requires the git config advice.ignoredHook to be false (which it is not by default).
       code: |
         git commit -a -m 'exec /usr/bin/uname -a'
         git log --max-count=1 --pretty=format:"%s"  --output .git/hooks/pre-commit
