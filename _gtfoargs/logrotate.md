@@ -1,4 +1,5 @@
 ---
+description: Logrotate is used to rotate stale logs and perform various actions like compress the old ones, send mails, and so on. More information about exploiting logrotate may be found [here](https://joshua.hu/gaining-root-with-logrotate-sudo-ubuntu).
 functions:
   command:
     - description: Requires a logrotate policy which uses the `mail` directive. A hash should be used as the final character in the command, as it is run with a few arguments.
