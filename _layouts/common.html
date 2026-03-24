@@ -2,9 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        {% seo %}
-        {% if page.title and page.title != site.title %}<meta property="og:title" content="{{ page.title }} | {{ site.title }}" />
-        <meta name="twitter:title" content="{{ page.title }} | {{ site.title }}" />{% endif %}
+        {% capture seo_output %}{% seo %}{% endcapture %}{% if page.title and page.title != site.title %}{% assign full_title = page.title | append: " | " | append: site.title %}{% assign old_og_title = 'og:title" content="' | append: page.title | append: '"' %}{% assign new_og_title = 'og:title" content="' | append: full_title | append: '"' %}{% assign old_tw_title = 'twitter:title" content="' | append: page.title | append: '"' %}{% assign new_tw_title = 'twitter:title" content="' | append: full_title | append: '"' %}{{ seo_output | replace: old_og_title, new_og_title | replace: old_tw_title, new_tw_title }}{% else %}{{ seo_output }}{% endif %}
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
         <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">

@@ -3,7 +3,7 @@ layout: null
 sitemap: false
 ---
 
-# GTFOArgs
+# {{ site.title }}
 
 > {{ site.description }}
 
