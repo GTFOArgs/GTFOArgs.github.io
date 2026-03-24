@@ -1,4 +1,5 @@
 ---
+title: curl
 functions:
   file-upload:
     - description: Send a local file to a remote server in a POST request.

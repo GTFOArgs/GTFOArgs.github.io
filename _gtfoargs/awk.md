@@ -1,4 +1,5 @@
 ---
+title: awk
 description: Awk injection is no different than other command injection vulnerabilities, including SQL injection. Awk is an incredibly powerful (yet simple) tool, so the possibilities are endless. See [this report](https://bugs.chromium.org/p/chromium/issues/detail?id=766253) for an example.
 functions:
   shell:

@@ -1,4 +1,5 @@
 ---
+title: ssh
 functions:
   shell:
     - description: Spawn interactive shell on client. Does not require a successful connection.

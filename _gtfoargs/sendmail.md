@@ -1,4 +1,5 @@
 ---
+title: sendmail
 description: sendmail differs between systems, depending on whether it is postfix, exim, or otherwise, which provides the binary.
 functions:
   command:

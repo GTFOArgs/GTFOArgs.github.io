@@ -1,4 +1,5 @@
 ---
+title: lftp
 description: LFTP is a file transfer client (FTP and other protocols).
 functions:
   shell:

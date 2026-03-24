@@ -1,4 +1,5 @@
 ---
+title: make
 functions:
   shell:
     - description: Can be used to execute arbitrary commands on a system and spawn shells either indirectly

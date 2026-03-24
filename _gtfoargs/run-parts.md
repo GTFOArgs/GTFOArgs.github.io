@@ -1,4 +1,5 @@
 ---
+title: run-parts
 description: |
   `run-parts` executes all executable files in a directory whose names
   match specific constraints. With `--regex`, you can precisely select a

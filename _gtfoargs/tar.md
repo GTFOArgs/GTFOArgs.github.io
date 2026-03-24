@@ -1,4 +1,5 @@
 ---
+title: tar
 functions:
   shell:
     - description: The --to-command is normally used to pipe extracted files to a command. This can be used to run arbitrary commands on a host. The file must be a valid archive file.
