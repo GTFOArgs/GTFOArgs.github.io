@@ -1,6 +1,10 @@
 ---
 layout: page
 title: "GTFOArgs: Argument Injection Exploitation Vector List"
+description: >-
+  GTFOArgs — a searchable reference of Unix binaries with exploitable arguments.
+  Find argument injection vectors for shell escapes, command execution,
+  file read/write, file transfer, and privilege escalation.
 ---
 
 ![logo](/assets/logo.png){:.logo}

@@ -1,6 +1,9 @@
 ---
 layout: page
 title: Contribute
+description: >-
+  How to contribute new Unix binary argument injection vectors to the GTFOArgs
+  project. File structure, YAML front matter format, and pull request guidelines.
 ---
 
 ## Structure
