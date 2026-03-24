@@ -1,6 +1,10 @@
 ---
 title: "GTFOArgs: Argument Injection Exploitation Vector List"
 
+include:
+  - llms.txt
+  - llms-full.txt
+
 exclude: ['/scripts', '/Gemfile', '/Makefile', '/README.md', '/CONTRIBUTING.md']
 
 permalink: pretty
