@@ -1,6 +1,6 @@
 ---
 layout: page
-title: GTFOArgs: Argument Injection Exploitation Vector List
+title: "GTFOArgs: Argument Injection Exploitation Vector List"
 ---
 
 ![logo](/assets/logo.png){:.logo}
