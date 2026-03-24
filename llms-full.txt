@@ -1,0 +1,64 @@
+---
+layout: null
+sitemap: false
+---
+
+# GTFOArgs
+
+> {{ site.description }}
+
+GTFOArgs documents legitimate program arguments that can be abused in security contexts. Argument injection (CAPEC-6) occurs when attacker-controlled input is passed as arguments to a program without proper sanitization — distinct from shell-metacharacter command injection. Common exploitation scenarios include injecting flags before an end-of-options delimiter (`--`), leveraging wildcard or glob expansion to turn filenames into options, and abusing legitimate program arguments that enable file operations or arbitrary command execution.
+
+The project collects legitimate arguments of Unix binaries that can be abused to break out of the environment they were run, in order to escalate privileges, transfer files, spawn bind and reverse shells, and facilitate other post-exploitation tasks.
+
+The project is inspired by [GTFOBins](https://gtfobins.github.io/) and is maintained by [Joshua Rogers](https://joshua.hu/).
+
+## Function Types
+
+Each binary may support one or more of the following exploitation functions:
+{% for function_pair in site.data.functions %}{% assign function = function_pair[1] %}
+- **{{ function.label }}**: {{ function.description }}{% endfor %}
+
+---
+{% for bin in site.gtfoargs %}{% capture bin_name %}{% include get_bin_name path=bin.path %}{% endcapture %}{% assign bin_name = bin_name | strip %}{% assign fn_list = "" %}{% for function_pair in site.data.functions %}{% assign fid = function_pair[0] %}{% if bin.functions[fid] %}{% if fn_list != "" %}{% assign fn_list = fn_list | append: ", " %}{% endif %}{% assign fn_list = fn_list | append: fid %}{% endif %}{% endfor %}
+## {{ bin_name }}
+
+URL: {{ site.url }}{{ bin.url }}
+Functions: {{ fn_list }}
+{% if bin.description %}
+{{ bin.description | strip_html | strip }}
+{% endif %}{% for function_pair in site.data.functions %}{% assign fid = function_pair[0] %}{% assign function = function_pair[1] %}{% assign examples = bin.functions[fid] %}{% if examples %}
+
+### {{ function.label }}
+{% for example in examples %}
+{% if example.description %}{{ example.description | strip_html | strip }}
+{% endif %}
+```
+{{ example.code | strip }}
+```
+{% endfor %}{% endif %}{% endfor %}
+---
+{% endfor %}
+
+## Contributing
+
+Each binary is defined in a YAML front matter file in the `_gtfoargs/` folder named `<binary name>.md`. The syntax is:
+
+```yaml
+---
+description: Optional description of the binary
+functions:
+  FUNCTION:
+    - description: Optional description of the example
+      code: Code of the example
+---
+```
+
+Where `FUNCTION` is one of: {% for function_pair in site.data.functions %}{{ function_pair[0] }}{% unless forloop.last %}, {% endunless %}{% endfor %}.
+
+## Links
+
+- Website: {{ site.url }}/
+- Repository: https://github.com/GTFOArgs/GTFOArgs.github.io
+- Contribute: {{ site.url }}/contribute/
+- Functions reference: {{ site.url }}/arguments/

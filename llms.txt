@@ -1,0 +1,28 @@
+---
+layout: null
+sitemap: false
+---
+
+# GTFOArgs
+
+> {{ site.description }}
+
+GTFOArgs documents legitimate program arguments that can be abused in security contexts. Argument injection (CAPEC-6) occurs when attacker-controlled input is passed as arguments to a program without proper sanitization — distinct from shell-metacharacter command injection. Common exploitation scenarios include injecting flags before an end-of-options delimiter (`--`), leveraging wildcard or glob expansion to turn filenames into options, and abusing legitimate program arguments that enable file operations or arbitrary command execution.
+
+The project is inspired by [GTFOBins](https://gtfobins.github.io/) and is maintained by [Joshua Rogers](https://joshua.hu/).
+
+## Function Types
+
+Each binary may support one or more of the following exploitation functions:
+{% for function_pair in site.data.functions %}{% assign function = function_pair[1] %}
+- **{{ function.label }}**: {{ function.description }}{% endfor %}
+
+## Documented Binaries
+{% for bin in site.gtfoargs %}{% capture bin_name %}{% include get_bin_name path=bin.path %}{% endcapture %}{% assign bin_name = bin_name | strip %}{% assign fn_list = "" %}{% for function_pair in site.data.functions %}{% assign fid = function_pair[0] %}{% if bin.functions[fid] %}{% if fn_list != "" %}{% assign fn_list = fn_list | append: ", " %}{% endif %}{% assign fn_list = fn_list | append: fid %}{% endif %}{% endfor %}
+- [{{ bin_name }}]({{ site.url }}{{ bin.url }}): {{ fn_list }}{% endfor %}
+
+## Links
+
+- Website: {{ site.url }}/
+- Repository: https://github.com/GTFOArgs/GTFOArgs.github.io
+- Full LLM context: {{ site.url }}/llms-full.txt
