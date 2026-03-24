@@ -12,11 +12,10 @@ include:
   - llms.txt
   - llms-full.txt
 
-exclude: ['/scripts', '/Gemfile', '/Makefile', '/README.md', '/CONTRIBUTING.md']
-
 author:
   name: Joshua Rogers
   url: "https://joshua.hu/"
+  twitter: megamansec
 
 twitter:
   username: megamansec
