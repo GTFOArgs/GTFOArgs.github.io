@@ -1,5 +1,5 @@
 ---
-title: GTFOArgs
+title: "GTFOArgs: Argument Injection Exploitation Vector List"
 
 exclude: ['/scripts', '/Gemfile', '/Makefile', '/README.md', '/CONTRIBUTING.md']
 
