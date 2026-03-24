@@ -1,4 +1,5 @@
 ---
+title: hg
 description: hg (Mercurial) is a source control management tool.
 functions:
   command:

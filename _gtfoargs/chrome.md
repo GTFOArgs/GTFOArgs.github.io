@@ -1,4 +1,5 @@
 ---
+title: chrome
 description: Chrome and Chromium-based browsers (including Electron apps) accept command-line flags that can be abused for argument injection.
 functions:
   command:

@@ -1,4 +1,5 @@
 ---
+title: git
 description: Git is an extremely powerful tool with more functionality than one can count. This list is non-exhaustive, but includes examples which have historically been useful for exploitation.
 functions:
   command:

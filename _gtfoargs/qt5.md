@@ -1,4 +1,5 @@
 ---
+title: qt5
 description: Qt5 applications accept common command-line flags that can be abused for argument injection. This affects any application built with Qt5.
 functions:
   command:
