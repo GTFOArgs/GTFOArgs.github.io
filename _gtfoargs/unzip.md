@@ -1,4 +1,5 @@
 ---
+title: unzip
 description: When dealing with unzip, it may also be worth looking at the [zip-slip vulnerability](https://github.com/snyk/zip-slip-vulnerability).
 functions:
   file-write:

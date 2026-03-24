@@ -1,4 +1,5 @@
 ---
+title: wget
 functions:
   command:
     - description: Can be used to execute any command or file on a system, but without any arguments, and without stdout/stderr. This can be useful if you are able to write an executable to the server beforehand. The example here invokes /sbin/reboot.

@@ -1,5 +1,12 @@
 ---
 title: "GTFOArgs: Argument Injection Exploitation Vector List"
+description: >-
+  GTFOArgs is a curated list of Unix binaries whose arguments can be exploited
+  for argument injection, enabling shell escapes, privilege escalation,
+  file read/write, and other post-exploitation techniques.
+url: "https://gtfoargs.github.io"
+permalink: pretty
+logo: /assets/logo.png
 
 include:
   - llms.txt
@@ -7,7 +14,31 @@ include:
 
 exclude: ['/scripts', '/Gemfile', '/Makefile', '/README.md', '/CONTRIBUTING.md']
 
-permalink: pretty
+author:
+  name: Joshua Rogers
+  url: "https://joshua.hu/"
+
+twitter:
+  username: megamansec
+  card: summary
+
+social:
+  name: Joshua Rogers
+  links:
+    - https://x.com/megamansec
+    - https://www.linkedin.com/in/joshua-alexander-rogers
+    - https://github.com/GTFOArgs
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - /scripts
+  - /Gemfile
+  - /Makefile
+  - /README.md
+  - /CONTRIBUTING.md
 
 collections:
   gtfoargs:
@@ -15,6 +46,10 @@ collections:
 
 defaults:
   - scope:
-      path: '_gtfoargs'
+      path: "_gtfoargs"
     values:
       layout: bin
+  - scope:
+      path: ""
+    values:
+      image: /assets/logo.png

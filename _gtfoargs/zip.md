@@ -1,4 +1,5 @@
 ---
+title: zip
 description: When dealing with zip, it may also be worth looking at the [zip-slip vulnerability](https://github.com/snyk/zip-slip-vulnerability).
 functions:
   shell:
